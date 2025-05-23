@@ -4,24 +4,27 @@
  */
 package Modelo;
 
+import java.util.Objects;
+
 /**
  *
  * @author Camilo
  */
 public class Empleado extends Persona {
     public String cargo;
-    public int nContrato;
-    public double salarioBase;
+    public String nContrato;
+    public String salarioBase;
 
     public Empleado() {
     }
 
-    public Empleado(String cargo, int nContrato, double salarioBase) {
+    public Empleado(String cargo, String nContrato, String salarioBase) {
         this.cargo = cargo;
         this.nContrato = nContrato;
         this.salarioBase = salarioBase;
     }
 
+    
     public String getCargo() {
         return cargo;
     }
@@ -30,21 +33,52 @@ public class Empleado extends Persona {
         this.cargo = cargo;
     }
 
-    public int getnContrato() {
+    public String getnContrato() {
         return nContrato;
     }
 
-    public void setnContrato(int nContrato) {
+    public void setnContrato(String nContrato) {
         this.nContrato = nContrato;
     }
 
-    public double getSalarioBase() {
+    public String getSalarioBase() {
         return salarioBase;
     }
 
-    public void setSalarioBase(double salarioBase) {
+    public void setSalarioBase(String salarioBase) {
         this.salarioBase = salarioBase;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 59 * hash + Objects.hashCode(this.cargo);
+        hash = 59 * hash + Objects.hashCode(this.nContrato);
+        hash = 59 * hash + Objects.hashCode(this.salarioBase);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Empleado other = (Empleado) obj;
+        if (!Objects.equals(this.cargo, other.cargo)) {
+            return false;
+        }
+        if (!Objects.equals(this.nContrato, other.nContrato)) {
+            return false;
+        }
+        return Objects.equals(this.salarioBase, other.salarioBase);
+    }
+
     
     
 }

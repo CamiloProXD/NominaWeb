@@ -4,46 +4,81 @@
  */
 package Modelo;
 
+import java.util.Objects;
+
 /**
  *
  * @author Camilo
  */
 public class Nomina extends Empleado {
-    public int diasTrabajados;
-    public static double auxTransporte = 200000;
-    public double comisiones;
+    public String diasTrabajados;
+    public String auxTransporte;
+    public String comisiones;
 
     public Nomina() {
     }
 
-    public Nomina(int diasTrabajados, double comisiones) {
+    public Nomina(String diasTrabajados, String auxTransporte, String comisiones) {
         this.diasTrabajados = diasTrabajados;
+        this.auxTransporte = auxTransporte;
         this.comisiones = comisiones;
     }
 
-    public int getDiasTrabajados() {
+    public String getDiasTrabajados() {
         return diasTrabajados;
     }
 
-    public void setDiasTrabajados(int diasTrabajados) {
+    public void setDiasTrabajados(String diasTrabajados) {
         this.diasTrabajados = diasTrabajados;
     }
 
-    public static double getAuxTransporte() {
+    public String getAuxTransporte() {
         return auxTransporte;
     }
 
-    public static void setAuxTransporte(double auxTransporte) {
-        Nomina.auxTransporte = auxTransporte;
+    public void setAuxTransporte(String auxTransporte) {
+        this.auxTransporte = auxTransporte;
     }
 
-    public double getComisiones() {
+    public String getComisiones() {
         return comisiones;
     }
 
-    public void setComisiones(double comisiones) {
+    public void setComisiones(String comisiones) {
         this.comisiones = comisiones;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 41 * hash + Objects.hashCode(this.diasTrabajados);
+        hash = 41 * hash + Objects.hashCode(this.auxTransporte);
+        hash = 41 * hash + Objects.hashCode(this.comisiones);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Nomina other = (Nomina) obj;
+        if (!Objects.equals(this.diasTrabajados, other.diasTrabajados)) {
+            return false;
+        }
+        if (!Objects.equals(this.auxTransporte, other.auxTransporte)) {
+            return false;
+        }
+        return Objects.equals(this.comisiones, other.comisiones);
+    }
+
+    
     
     
 }
