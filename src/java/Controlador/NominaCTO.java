@@ -4,6 +4,8 @@
  */
 package Controlador;
 
+import Modelo.Empleado;
+import Modelo.EmpleadoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -25,7 +27,18 @@ public class NominaCTO extends HttpServlet {
 
         switch (accion) {
             case "crear": {
+                request.getRequestDispatcher("ViewCrearEmpleado.jsp").forward(request, response);
                 break;
+            }
+            case "crearEmpleado": {
+                String cedula = request.getParameter("txt_cedula");
+                String nombres = request.getParameter("txt_nombres");
+                String apellidos = request.getParameter("txt_apellidos");
+                String telefono = request.getParameter("txt_tel");
+                String correo = request.getParameter("txt_correo");
+
+                
+
             }
             case "ver": {
                 request.getRequestDispatcher("ViewVerNomina.jsp").forward(request, response);
@@ -36,7 +49,7 @@ public class NominaCTO extends HttpServlet {
 
     }
 
-   // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *

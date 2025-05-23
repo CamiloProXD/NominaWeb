@@ -19,7 +19,7 @@
         
         <nav>
             <ul>
-                <li><a href="index.jsp">Crear</a></li>
+                <li><a href="NominaCTO?accion=crear">Crear</a></li>
                 <li><a href="NominaCTO?accion=ver">Ver Nomina</a></li>
             </ul>
         </nav>
