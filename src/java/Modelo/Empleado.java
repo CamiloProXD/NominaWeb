@@ -28,6 +28,10 @@ public class Empleado extends Persona {
         this.salarioBase = salarioBase;
     }
 
+    public boolean tieneDerechoTransporte() {
+        return this.salarioBase <= 2847000;
+    }
+    
     public String getCargo() {
         return cargo;
     }
