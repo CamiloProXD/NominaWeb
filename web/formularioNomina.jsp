@@ -81,13 +81,9 @@
     <body>
         <div class="container">
             <h2>Registrar Nómina</h2>
-
-            <%-- Mostrar mensaje de error si existe --%>
             <% if (request.getAttribute("error") != null) {%>
             <div class="error"><%= request.getAttribute("error")%></div>
             <% } %>
-
-            <%-- Información del empleado --%>
             <div class="empleado-info">
                 <%
                     Empleado empleado = (Empleado) request.getAttribute("empleado");
@@ -106,8 +102,6 @@
                 <p class="error">No se encontró información del empleado</p>
                 <% }%>
             </div>
-
-            <%-- Formulario de nómina --%>
             <form action="NominaCTO" method="POST">
                 <input type="hidden" name="accion" value="guardarNomina">
                 <input type="hidden" name="txt_cedula" value="<%= empleado != null ? empleado.getCedula() : ""%>">
@@ -121,8 +115,7 @@
                 <div class="form-group">
                     <label for="horasExtras">Horas Extras:</label>
                     <input type="number" id="horasExtras" name="horasExtras" 
-                           min="0" step="0.5" value="0" required>
-                    <p class="info-note">Las horas extras se pagan con un recargo del 25% sobre el valor de la hora normal</p>
+                           min="0" step="1" value="0" required>                 
                 </div>
 
                 <div class="form-group">
@@ -132,7 +125,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Descuentos Automáticos:</label>
+                    <label>Descuentos:</label>
                     <%
                         NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("es", "CO"));
                     %>

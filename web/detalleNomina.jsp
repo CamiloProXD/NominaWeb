@@ -94,27 +94,19 @@
                 NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("es", "CO"));
                 
                 if (nomina != null) { 
-                    // Cálculos básicos
                     double salarioProporcional = (nomina.getSalarioBase() / 30) * Double.parseDouble(nomina.getDiasTrabajados());
                     double comisiones = nomina.getComisiones() != null ? Double.parseDouble(nomina.getComisiones()) : 0;
-                    
-                    // Cálculo de descuentos (salud 4% y pensión 4%)
                     double descuentoSalud = salarioProporcional * 0.04;
                     double descuentoPension = salarioProporcional * 0.04;
                     double totalDescuentos = descuentoSalud + descuentoPension;
-                    
-                    // Cálculo de auxilio de transporte
                     double auxTransporte = nomina.calcularAuxilioTransporte();
-                    
-                    // Cálculo de horas extras (valor hora normal + 25% recargo)
                     double horasExtrasValor = 0;
                     if (nomina.getHorasExtras() != null && !nomina.getHorasExtras().isEmpty()) {
                         double horasExtras = Double.parseDouble(nomina.getHorasExtras());
-                        double valorHoraNormal = nomina.getSalarioBase() / 240; // 240 horas mensuales
-                        horasExtrasValor = horasExtras * valorHoraNormal * 1.25; // 25% recargo
+                        double valorHoraNormal = nomina.getSalarioBase() / 240; 
+                        horasExtrasValor = horasExtras * valorHoraNormal * 1.25; 
                     }
-                    
-                    // Cálculo del total neto (incluyendo horas extras)
+
                     double totalNeto = salarioProporcional - totalDescuentos + auxTransporte + comisiones + horasExtrasValor;
             %>
             
@@ -134,15 +126,11 @@
                     <th>Detalle</th>
                     <th>Valor</th>
                 </tr>
-                
-                <!-- Salario base -->
                 <tr>
                     <td>Salario Base</td>
                     <td><%= nomina.getDiasTrabajados() %> días trabajados</td>
                     <td><%= nf.format(salarioProporcional) %></td>
                 </tr>
-                
-                <!-- Horas extras -->
                 <% if (horasExtrasValor > 0) { %>
                 <tr class="horas-extras">
                     <td>Horas Extras</td>
@@ -153,8 +141,6 @@
                     <td>+ <%= nf.format(horasExtrasValor) %></td>
                 </tr>
                 <% } %>
-                
-                <!-- Comisiones -->
                 <% if (comisiones > 0) { %>
                 <tr>
                     <td>Comisiones</td>
