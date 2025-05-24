@@ -24,13 +24,15 @@ public class Nomina extends Empleado {
         this.comisiones = comisiones;
     }
 
-    public Nomina(String diasTrabajados, String auxTransporte, String comisiones, String cargo, String nContrato, String salarioBase) {
-        super(cargo, nContrato, salarioBase);
+    public Nomina(String diasTrabajados, String auxTransporte, String comisiones, String cedula, String nombres, String apellidos, String telefono, String correo, String cargo, String nContrato, double salarioBase) {
+        super(cedula, nombres, apellidos, telefono, correo, cargo, nContrato, salarioBase);
         this.diasTrabajados = diasTrabajados;
         this.auxTransporte = auxTransporte;
         this.comisiones = comisiones;
     }
+
     
+
     
 
     public String getDiasTrabajados() {

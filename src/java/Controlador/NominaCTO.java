@@ -36,9 +36,28 @@ public class NominaCTO extends HttpServlet {
                 String apellidos = request.getParameter("txt_apellidos");
                 String telefono = request.getParameter("txt_tel");
                 String correo = request.getParameter("txt_correo");
+                String cargo = request.getParameter("txt_cargo");
+                String nContrato = request.getParameter("txt_nContrato");
+                double salarioBase = Double.parseDouble(request.getParameter("txt_salarioBase"));
 
-                
+                if (EmpleadoDAO.existeCedula(cedula)) {
+                    request.setAttribute("error", "La cédula " + cedula + " ya está registrada");
+                    request.getRequestDispatcher("ViewCrearEmpleado.jsp").forward(request, response);
+                    return;
+                }
+                try {
+                    Empleado nuevoEmpleado = new Empleado(
+                            cedula, nombres, apellidos, telefono, correo,
+                            cargo, nContrato, salarioBase
+                    );
+                    EmpleadoDAO.agregarEmpleado(nuevoEmpleado);
 
+                    response.sendRedirect("exitoRegistro.jsp");
+                } catch (NumberFormatException e) {
+                    request.setAttribute("error", "El salario debe ser un número válido");
+                    request.getRequestDispatcher("ViewCrearEmpleado.jsp").forward(request, response);
+                }
+                break;
             }
             case "ver": {
                 request.getRequestDispatcher("ViewVerNomina.jsp").forward(request, response);

@@ -11,20 +11,23 @@ import java.util.Objects;
  * @author Camilo
  */
 public class Empleado extends Persona {
+
     public String cargo;
     public String nContrato;
-    public String salarioBase;
+    public double salarioBase;
 
     public Empleado() {
     }
 
-    public Empleado(String cargo, String nContrato, String salarioBase) {
+    public Empleado(String cedula, String nombres, String apellidos,
+            String telefono, String correo, String cargo,
+            String nContrato, double salarioBase) {
+        super(cedula, nombres, apellidos, telefono, correo);
         this.cargo = cargo;
         this.nContrato = nContrato;
         this.salarioBase = salarioBase;
     }
 
-    
     public String getCargo() {
         return cargo;
     }
@@ -41,13 +44,14 @@ public class Empleado extends Persona {
         this.nContrato = nContrato;
     }
 
-    public String getSalarioBase() {
+    public Double getSalarioBase() {
         return salarioBase;
     }
 
-    public void setSalarioBase(String salarioBase) {
+    public void setSalarioBase(Double salarioBase) {
         this.salarioBase = salarioBase;
     }
+    
 
     @Override
     public int hashCode() {
@@ -79,6 +83,4 @@ public class Empleado extends Persona {
         return Objects.equals(this.salarioBase, other.salarioBase);
     }
 
-    
-    
 }

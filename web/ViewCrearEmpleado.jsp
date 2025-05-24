@@ -34,6 +34,15 @@
                 <label for="txt_correo">Correo:</label>
                 <input type="email" id="txt_correo" name="txt_correo" required>
                 <br><br>
+                <label for="txt_cargo">Cargo:</label>
+                <input type="text" id="txt_cargo" name="txt_cargo" required>
+                <br><br>
+                <label for="txt_nContrato">Numero De Contrato:</label>
+                <input type="text" id="txt_nContrato" name="txt_nContrato" required>
+                <br><br>
+                <label for="txt_salarioBase">Salario Base</label>
+                <input type="number" step="0.01" id="txt_salarioBase" name="txt_salarioBase" required>
+                <br><br>
             </fieldset>
             <br>
             <input type="hidden" name="accion" value="crearEmpleado">
