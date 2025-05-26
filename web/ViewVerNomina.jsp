@@ -8,7 +8,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Listado de Nóminas</title>
     <style>
-        /* Estilos mejorados */
         .descuento { color: #e74c3c; }
         .beneficio { color: #27ae60; }
         .horas-extras { color: #f39c12; }
@@ -20,8 +19,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Listado Completo de Nóminas</h1>
-        
+        <h1>Listado Completo de Nóminas</h1>       
         <table>
             <thead>
                 <tr>
@@ -34,14 +32,12 @@
                     <th>Descuentos</th>
                     <th>Aux. Transporte</th>
                     <th>Total Neto</th>
-                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 <% 
                     List<Nomina> listaNominas = (List<Nomina>) request.getAttribute("listaNominas");
-                    NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("es", "CO"));
-                    
+                    NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("es", "CO"));                   
                     if (listaNominas != null && !listaNominas.isEmpty()) {
                         for (Nomina nomina : listaNominas) {
                             double salarioProporcional = (nomina.getSalarioBase() / 30) * 
@@ -67,7 +63,6 @@
                     <td class="beneficio"><%= nf.format(auxTransporte) %></td>
                     <td class="total-net"><%= nf.format(totalNeto) %></td>
                     <td>
-                        <a href="detalleNomina.jsp?cedula=<%= nomina.getCedula() %>">Ver Detalle</a>
                     </td>
                 </tr>
                 <% 

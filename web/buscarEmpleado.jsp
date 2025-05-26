@@ -46,8 +46,6 @@
     <body>
         <div class="search-container">
             <h2>Buscar Empleado para Nómina</h2>
-            
-            <%-- Mostrar mensaje de error si existe --%>
             <% if (request.getAttribute("error") != null) { %>
                 <div class="error"><%= request.getAttribute("error") %></div>
             <% } %>

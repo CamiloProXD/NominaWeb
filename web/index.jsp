@@ -64,21 +64,21 @@
         <div class="menu-container">
             <div class="menu-card">
                 <a href="NominaCTO?accion=crear">
-                    <div>📝</div>
+                    
                     <div>Registrar Empleado</div>
                 </a>
             </div>
             
             <div class="menu-card">
                 <a href="NominaCTO?accion=buscarParaNomina">
-                    <div>💰</div>
+                    
                     <div>Crear Nómina</div>
                 </a>
             </div>
             
             <div class="menu-card">
                 <a href="NominaCTO?accion=ver">
-                    <div>📊</div>
+                    
                     <div>Ver Nóminas</div>
                 </a>
             </div>

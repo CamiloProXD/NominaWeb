@@ -62,7 +62,7 @@ public class Nomina extends Empleado {
             return 0;
         }
         double horas = Double.parseDouble(horasExtras);
-        double valorHoraNormal = (getSalarioBase() / 240); // 240 horas laborales mensuales
+        double valorHoraNormal = (getSalarioBase() / 240); 
         return horas * valorHoraNormal * horaExtra;
     }
 

@@ -19,16 +19,11 @@
                 max-width: 500px;
                 text-align: center;
                 border-radius: 5px;
-            }
-            .success-icon {
-                color: #4CAF50;
-                font-size: 50px;
-            }
+            }         
         </style>
     </head>
     <body>
         <div class="success-box">
-            <div class="success-icon">✓</div>
             <h1>¡Registro Exitoso!</h1>
             <p>El empleado con cédula <strong>${param.cedula}</strong> ha sido registrado correctamente.</p>
 

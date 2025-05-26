@@ -148,8 +148,6 @@
                     <td>+ <%= nf.format(comisiones) %></td>
                 </tr>
                 <% } %>
-                
-                <!-- Descuentos -->
                 <tr class="descuento">
                     <td>Descuento Salud</td>
                     <td>4% del salario</td>
@@ -160,8 +158,6 @@
                     <td>4% del salario</td>
                     <td>- <%= nf.format(descuentoPension) %></td>
                 </tr>
-                
-                <!-- Auxilio de transporte -->
                 <% if (auxTransporte > 0) { %>
                 <tr class="beneficio">
                     <td>Auxilio Transporte</td>
@@ -169,8 +165,6 @@
                     <td>+ <%= nf.format(auxTransporte) %></td>
                 </tr>
                 <% } %>
-                
-                <!-- Total neto -->
                 <tr class="total">
                     <td colspan="2"><strong>TOTAL NETO A PAGAR</strong></td>
                     <td><strong><%= nf.format(totalNeto) %></strong></td>
@@ -178,7 +172,6 @@
             </table>
             
             <div style="text-align: center; margin-top: 20px;">
-                <a href="javascript:window.print()" class="btn btn-primary">Imprimir Comprobante</a>
                 <a href="index.jsp" class="btn btn-secondary">Volver al Inicio</a>
             </div>
             

@@ -128,8 +128,6 @@ public class NominaCTO extends HttpServlet {
                         empleado.getnContrato(),
                         empleado.getSalarioBase()
                 );
-
-                // Agregar esta línea para guardar las horas extras
                 nomina.setHorasExtras(request.getParameter("horasExtras"));
 
                 NominaDAO.agregarNomina(nomina);
